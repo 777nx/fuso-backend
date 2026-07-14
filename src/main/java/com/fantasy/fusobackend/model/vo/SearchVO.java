@@ -1,0 +1,20 @@
+package com.fantasy.fusobackend.model.vo;
+
+import com.fantasy.fusobackend.model.entity.Picture;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.List;
+
+/**
+ * 聚合搜索
+ */
+@Data
+public class SearchVO implements Serializable {
+
+    private List<UserVO> userList;
+
+    private List<PostVO> postList;
+
+    private List<Picture> pictureList;
+}

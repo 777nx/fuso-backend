@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.fantasy.fusobackend.model.dto.post.PostQueryRequest;
 import com.fantasy.fusobackend.model.entity.Post;
 import com.fantasy.fusobackend.model.vo.PostVO;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -54,4 +55,13 @@ public interface PostService extends IService<Post> {
      * @return
      */
     Page<PostVO> getPostVOPage(Page<Post> postPage, HttpServletRequest request);
+
+    /**
+     * 分页查询帖子
+     *
+     * @param postQueryRequest
+     * @param request
+     * @return
+     */
+    Page<PostVO> listPostVOByPage(PostQueryRequest postQueryRequest, HttpServletRequest request);
 }

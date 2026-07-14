@@ -1,13 +1,16 @@
 package com.fantasy.fusobackend.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fantasy.fusobackend.model.dto.user.UserQueryRequest;
 import com.fantasy.fusobackend.model.entity.User;
 import com.fantasy.fusobackend.model.vo.LoginUserVO;
 import com.fantasy.fusobackend.model.vo.UserVO;
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 
 /**
@@ -115,4 +118,10 @@ public interface UserService extends IService<User> {
      */
     QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
 
+    /**
+     * 分页查询用户
+     *
+     * @param userQueryRequest
+     */
+    Page<UserVO> listUserVOByPage(UserQueryRequest userQueryRequest);
 }
