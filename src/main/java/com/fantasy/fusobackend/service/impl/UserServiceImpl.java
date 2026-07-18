@@ -270,8 +270,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Page<UserVO> listUserVOByPage(UserQueryRequest userQueryRequest) {
-        int current = userQueryRequest.getCurrent();
-        int size = userQueryRequest.getPageSize();
+        long current = userQueryRequest.getCurrent();
+        long size = userQueryRequest.getPageSize();
         Page<User> userPage = this.page(new Page<>(current, size),
                 this.getQueryWrapper(userQueryRequest));
         Page<UserVO> userVOPage = new Page<>(current, size, userPage.getTotal());
