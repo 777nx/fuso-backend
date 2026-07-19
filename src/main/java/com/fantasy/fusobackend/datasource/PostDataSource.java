@@ -2,6 +2,7 @@ package com.fantasy.fusobackend.datasource;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fantasy.fusobackend.model.dto.post.PostQueryRequest;
+import com.fantasy.fusobackend.model.entity.Post;
 import com.fantasy.fusobackend.model.vo.PostVO;
 import com.fantasy.fusobackend.service.PostService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ public class PostDataSource implements DataSource<PostVO> {
         postQueryRequest.setPageSize(pageSize);
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
-        Page<PostVO> postVOPage = postService.listPostVOByPage(postQueryRequest, request);
-        return postVOPage;
+        Page<Post> postPage = postService.searchFromEs(postQueryRequest);
+        return postService.getPostVOPage(postPage, request);
     }
 }

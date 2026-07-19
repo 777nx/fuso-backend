@@ -10,4 +10,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 public interface PostEsDao extends ElasticsearchRepository<PostEsDTO, Long> {
 
     List<PostEsDTO> findByUserId(Long userId);
+
+    List<PostEsDTO> findByTitle(String title);
 }
